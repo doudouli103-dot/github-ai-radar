@@ -14,7 +14,13 @@ The first implementation keeps external GitHub and AI Gateway calls behind inter
 
 ## Web UI
 
-The thin intelligence console lives in `github-ai-radar_webui`.
+The thin intelligence console is maintained as a separate frontend repository:
+
+```text
+https://github.com/doudouli103-dot/github-ai-radar_webui
+```
+
+If the frontend repository is cloned next to this backend workspace, start it with:
 
 ```bash
 cd github-ai-radar_webui
