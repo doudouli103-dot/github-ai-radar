@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: github-ai-radar
+  datasource:
+    url: ${GITHUB_AI_RADAR_DB_URL:jdbc:postgresql://localhost:5432/github_ai_radar}
+    username: ${GITHUB_AI_RADAR_DB_USERNAME:postgres}
+    password: ${GITHUB_AI_RADAR_DB_PASSWORD:postgres}
+  flyway:
+    enabled: true
+
+github:
+  token: ${GITHUB_TOKEN:}
+  search:
+    min-stars: 50
+    pushed-after-days: 30
+    topics:
+      - ai
+      - llm
+      - agent
+      - rag
+      - mcp
+      - code-generation
+      - generative-ai
+
+ai-gateway:
+  base-url: ${AI_GATEWAY_BASE_URL:${MAC_STUDIO_MODEL_GATEWAY_URL:}}
+  api-key: ${AI_GATEWAY_API_KEY:}
+  temperature: ${AI_GATEWAY_TEMPERATURE:0.2}
+  max-tokens: ${AI_GATEWAY_MAX_TOKENS:4096}
+  models:
+    general: ${AI_GATEWAY_GENERAL_MODEL:gpt-oss-120b}
+    coder: ${AI_GATEWAY_CODER_MODEL:qwen3-coder-next}
+
+infrastructure:
+  macbook:
+    role: development-terminal
+  mac-studio:
+    role: model-capability-layer
+    model-gateway-url: ${MAC_STUDIO_MODEL_GATEWAY_URL:http://mac-studio.local:4000/v1}
+    embedding-url: ${MAC_STUDIO_EMBEDDING_URL:http://mac-studio.local:4000/v1/embeddings}
+    reranker-url: ${MAC_STUDIO_RERANKER_URL:http://mac-studio.local:4000/v1/rerank}
+  windows:
+    role: data-service-layer
+    mysql-url: ${WINDOWS_MYSQL_URL:jdbc:mysql://windows.local:3306/github_ai_radar}
+    redis-url: ${WINDOWS_REDIS_URL:redis://windows.local:6379}
+    elasticsearch-url: ${WINDOWS_ELASTICSEARCH_URL:http://windows.local:9200}
+    chroma-url: ${WINDOWS_CHROMA_URL:http://windows.local:8001}
+    rag-api-url: ${WINDOWS_RAG_API_URL:http://windows.local:8000}
+
+radar:
+  scheduler:
+    daily-cron: ${GITHUB_AI_RADAR_DAILY_CRON:0 0 8 * * *}
