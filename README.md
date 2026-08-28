@@ -12,6 +12,24 @@ mvn test
 
 The first implementation keeps external GitHub and AI Gateway calls behind interfaces so the core workflow can be tested without credentials.
 
+## Web UI
+
+The thin intelligence console lives in `github-ai-radar_webui`.
+
+```bash
+cd github-ai-radar_webui
+npm install
+npm run dev
+```
+
+The Web UI uses Vue 3, Vite, TypeScript, and a small API adapter. It first tries:
+
+```text
+GET /api/reports/latest
+```
+
+If the backend API is not available yet, it falls back to local mock data so the console remains usable while the Spring Boot API is being developed.
+
 ## GitHub Collection
 
 `GithubApiRepositoryCollector` calls GitHub REST Search API:
