@@ -19,7 +19,7 @@ class OpenAiCompatibleAiGatewayClientTest {
     void callsChatCompletionsWithModelRoleAlias() {
         CapturingExchangeFunction exchange = new CapturingExchangeFunction();
         AiGatewayProperties properties = new AiGatewayProperties();
-        properties.setBaseUrl("http://mac-studio.local:4000/v1");
+        properties.setBaseUrl("http://macstudio.tentest.cn:8088/v1");
         properties.setApiKey("sk-local");
         properties.getModels().setGeneral("gpt-oss-120b");
         properties.getModels().setCoder("qwen3-coder-next");

@@ -88,8 +88,8 @@ POST {AI_GATEWAY_BASE_URL}/chat/completions
 Recommended Mac Studio configuration:
 
 ```bash
-export AI_GATEWAY_BASE_URL=http://mac-studio.local:4000/v1
-export AI_GATEWAY_API_KEY=sk-local
+export AI_GATEWAY_BASE_URL=http://macstudio.tentest.cn:8088/v1
+export AI_GATEWAY_API_KEY=local-dev-key
 export AI_GATEWAY_GENERAL_MODEL=gpt-oss-120b
 export AI_GATEWAY_CODER_MODEL=qwen3-coder-next
 ```
@@ -134,9 +134,24 @@ JdbcDailyReportStore
 
 The SQL implementation currently targets the PostgreSQL migration under `src/main/resources/db/migration`.
 
-## Local Device Topology
+## LAN Deployment Topology
 
-The recommended local deployment uses three machines:
+Use the shared LAN hostnames:
+
+```text
+192.168.1.101  macbook.tentest.cn
+192.168.1.102  macstudio.tentest.cn
+192.168.1.103  windows.tentest.cn
+```
+
+Deploy this backend on Windows. Configure AI Gateway calls to Mac Studio:
+
+```bash
+export AI_GATEWAY_BASE_URL=http://macstudio.tentest.cn:8088/v1
+export AI_GATEWAY_API_KEY=local-dev-key
+```
+
+Windows deployment values are available in `.env.windows.example`.
 
 ```text
 MacBook Pro -> development terminal and debugging entry

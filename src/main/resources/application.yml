@@ -36,16 +36,16 @@ infrastructure:
     role: development-terminal
   mac-studio:
     role: model-capability-layer
-    model-gateway-url: ${MAC_STUDIO_MODEL_GATEWAY_URL:http://mac-studio.local:4000/v1}
-    embedding-url: ${MAC_STUDIO_EMBEDDING_URL:http://mac-studio.local:4000/v1/embeddings}
-    reranker-url: ${MAC_STUDIO_RERANKER_URL:http://mac-studio.local:4000/v1/rerank}
+    model-gateway-url: ${MAC_STUDIO_MODEL_GATEWAY_URL:http://macstudio.tentest.cn:8088/v1}
+    embedding-url: ${MAC_STUDIO_EMBEDDING_URL:http://macstudio.tentest.cn:4000/v1/embeddings}
+    reranker-url: ${MAC_STUDIO_RERANKER_URL:http://macstudio.tentest.cn:4000/v1/rerank}
   windows:
     role: data-service-layer
-    mysql-url: ${WINDOWS_MYSQL_URL:jdbc:mysql://windows.local:3306/github_ai_radar}
-    redis-url: ${WINDOWS_REDIS_URL:redis://windows.local:6379}
-    elasticsearch-url: ${WINDOWS_ELASTICSEARCH_URL:http://windows.local:9200}
-    chroma-url: ${WINDOWS_CHROMA_URL:http://windows.local:8001}
-    rag-api-url: ${WINDOWS_RAG_API_URL:http://windows.local:8000}
+    mysql-url: ${WINDOWS_MYSQL_URL:jdbc:mysql://windows.tentest.cn:3306/github_ai_radar}
+    redis-url: ${WINDOWS_REDIS_URL:redis://windows.tentest.cn:6379}
+    elasticsearch-url: ${WINDOWS_ELASTICSEARCH_URL:http://windows.tentest.cn:9200}
+    chroma-url: ${WINDOWS_CHROMA_URL:http://windows.tentest.cn:8001}
+    rag-api-url: ${WINDOWS_RAG_API_URL:http://windows.tentest.cn:8000}
 
 radar:
   scheduler:
